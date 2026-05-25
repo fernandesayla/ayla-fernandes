@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mídia Kit · Ayla Fernandes</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f8f4ee;
+      color: #443a34;
+    }
+
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+
+      background: #f8f4ee;
+    }
+
+    /* ─── CAPA ─── */
+    .cover {
+      display: flex;
+      align-items: flex-start;
+      gap: 56px;
+      padding: 64px 80px 52px;
+    }
+
+    .cover-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cover-right {
+      flex: 0.7;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 8px;
+    }
+
+    .cover-photo {
+      width: 80%;
+      border-radius: 160px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .cover-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: #443a34;
+      line-height: 1.05;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .cover-subtitle {
+      font-size: 12px;
+      font-weight: 300;
+      color: #888;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+    }
+
+    /* ─── BIO ─── */
+    .bio {
+      padding: 24px 24px;
+
+    }
+
+    .bio p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      color: #443a34;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .bio-detail {
+      margin-top: 24px;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c5b49d;
+    }
+
+    /* ─── CAPA BIO OVERRIDE ─── */
+    .cover-left .bio {
+      padding: 0;
+      border-bottom: none;
+    }
+
+    .cover-left .bio p {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 300;
+      color: #443a34;
+      line-height: 1.9;
+      text-align: justify;
+      max-width: none;
+      margin-bottom: 14px;
+    }
+
+    .cover-left .bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    .cover-left .bio p strong {
+      font-weight: 500;
+    }
+
+    /* ─── VIRAL ─── */
+    .viral {
+      padding: 22px 56px;
+      border-bottom: 1px solid #c5b49d;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .viral-pill {
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #443a34;
+      padding: 4px 10px;
+      flex-shrink: 0;
+    }
+
+    .viral-copy {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    .viral-copy strong {
+      color: #443a34;
+      font-weight: 500;
+    }
+
+    /* ─── SECTION ─── */
+    .section {
+      padding: 44px 56px;
+      border-bottom: 1px solid #c5b49d;
+    }
+
+    .section.no-top {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .section-head {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c5b49d;
+      margin-bottom: 32px;
+    }
+
+    /* ─── PLATAFORMAS ─── */
+    .platforms {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid #c5b49d;
+    }
+
+    .platform-col {
+      padding: 32px 28px;
+    }
+
+    .platform-col+.platform-col {
+      border-left: 1px solid #c5b49d;
+    }
+
+    .platform-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .platform-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .platform-icon.ig {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+
+    .platform-icon.tt {
+      background: #010101;
+    }
+
+    .platform-icon svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    .platform-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .plat-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .plat-stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #c5b49d;
+    }
+
+    .plat-stat-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .plat-stat-label {
+      font-size: 11px;
+      color: #c5b49d;
+    }
+
+    .plat-stat-val {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: #443a34;
+    }
+
+    .plat-stat-growth {
+      font-size: 9px;
+      color: #c5b49d;
+      letter-spacing: 0.5px;
+      margin-top: 1px;
+      text-align: right;
+    }
+
+    .plat-stat-right {
+      text-align: right;
+    }
+
+    /* ─── PERIOD LABEL ─── */
+    .period-note {
+      font-size: 9px;
+      color: #c5b49d;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* ─── REEL ─── */
+    .reel-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .reel-item {
+      text-align: center;
+      padding: 20px 0;
+      border-right: 1px solid #c5b49d;
+    }
+
+    .reel-item:last-child {
+      border-right: none;
+    }
+
+    .reel-n {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: #443a34;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .reel-l {
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c5b49d;
+    }
+
+    /* ─── PÚBLICO ─── */
+    .audience {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .aud-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #c5b49d;
+      margin-bottom: 20px;
+    }
+
+    .gender-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .g-name {
+      font-size: 11px;
+      color: #888;
+      width: 56px;
+    }
+
+    .bar-wrap {
+      flex: 1;
+      height: 1px;
+      background: #c5b49d;
+    }
+
+    .bar-fill {
+      height: 1px;
+      background: #443a34;
+    }
+
+    .bar-fill.f {
+      width: 78.6%;
+    }
+
+    .bar-fill.m {
+      width: 21.4%;
+      background: #c5b49d;
+    }
+
+    .g-pct {
+      font-size: 12px;
+      color: #443a34;
+      width: 36px;
+      text-align: right;
+    }
+
+    .org-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid #c5b49d;
+    }
+
+    .org-row:first-of-type {
+      border-top: 1px solid #c5b49d;
+    }
+
+    .org-label {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .org-val {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      font-weight: 300;
+      color: #443a34;
+    }
+
+    /* ─── TAGS ─── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      border: 1px solid #c5b49d;
+      padding: 5px 12px;
+    }
+
+    .tag.on {
+      color: #443a34;
+      border-color: #443a34;
+    }
+
+    /* ─── DELIVERABLES ─── */
+    .del-item {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 18px 0;
+      border-bottom: 1px solid #c5b49d;
+    }
+
+    .del-item:first-child {
+      border-top: 1px solid #c5b49d;
+    }
+
+    .del-n {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      color: #c5b49d;
+      width: 20px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .del-t {
+      font-size: 12px;
+      font-weight: 500;
+      color: #443a34;
+      margin-bottom: 3px;
+    }
+
+    .del-d {
+      font-size: 11px;
+      color: #c5b49d;
+      line-height: 1.6;
+    }
+
+    /* ─── CTA ─── */
+    .cta {
+      padding: 52px 56px;
+      text-align: center;
+    }
+
+    .cta-h {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 36px;
+      font-weight: 300;
+      font-style: italic;
+      color: #443a34;
+      margin-bottom: 28px;
+    }
+
+    .cta-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .cta-line span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .cta-icon {
+      width: 13px;
+      height: 13px;
+      fill: #888;
+      flex-shrink: 0;
+    }
+
+    .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #c5b49d;
+      flex-shrink: 0;
+    }
+
+    .foot {
+      padding: 16px;
+      text-align: center;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c5b49d;
+      border-top: 1px solid #c5b49d;
+    }
+
+    @page {
+      margin: 0;
+      size: auto;
+    }
+
+    @media print {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #f8f4ee;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        max-width: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- CAPA -->
+    <div class="cover">
+      <div class="cover-left">
+        <div class="cover-name">Ayla Fernandes</div>
+        <div class="cover-subtitle">Desenvolvedora de Software &amp; Criadora de Conteúdo</div>
+        <div class="cover-rule"></div>
+        <div class="bio">
+          <strong>
+            <p>Ayla Fernandes é desenvolvedora de software há 16 anos em um dos maiores bancos do Brasil,
+              formada em Sistemas de Informação. Depois de tanto tempo vivendo o mundo corporativo e tecnológico,
+              decidiu
+              usar a criatividade que sempre fez parte dela para criar conteúdo sobre os assuntos que genuinamente fazem
+              parte da sua vida: sua Pajero TR4, tecnologia, inteligência artificial, skincare e wellness.</p>
+            <p>Ayla não é uma influenciadora que descobriu o Instagram do nada. É uma profissional com bagagem técnica
+              real, que resolveu compartilhar o que ama de um jeito autêntico o resultado foi um reel que chegou a 1
+              milhão de views organicamente em poucos dias, provando que quando o conteúdo é verdadeiro, as pessoas
+              sentem.</p>
+          </strong>
+        </div>
+      </div>
+      <div class="cover-right">
+        <img class="cover-photo" src="./IMG_1640.jpeg" alt="Ayla Fernandes">
+      </div>
+    </div>
+
+    <!-- PLATAFORMAS -->
+    <div class="section">
+      <div class="section-head">Métricas por plataforma — 23 abril a 23 maio</div>
+      <div class="platforms">
+
+        <!-- INSTAGRAM -->
+        <div class="platform-col">
+          <div class="platform-name">
+            <div class="platform-icon ig">
+              <svg viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </div>
+            <span class="platform-label">Instagram</span>
+          </div>
+          <div class="plat-stats">
+            <div class="plat-stat-row">
+              <span class="plat-stat-label">Visualizações</span>
+              <div class="plat-stat-right">
+                <div class="plat-stat-val">1M</div>
+                <div class="plat-stat-growth">1.001.206 no período</div>
+              </div>
+            </div>
+            <div class="plat-stat-row">
+              <span class="plat-stat-label">Contas alcançadas</span>
+              <div class="plat-stat-right">
+                <div class="plat-stat-val">595K</div>
+                <div class="plat-stat-growth">+37.473%</div>
+              </div>
+            </div>
+            <div class="plat-stat-row">
+              <span class="plat-stat-label">Interações</span>
+              <div class="plat-stat-right">
+                <div class="plat-stat-val">46.3K</div>
+                <div class="plat-stat-growth">curtidas · saves · comentários</div>
+              </div>
+            </div>
+            <div class="plat-stat-row">
+              <span class="plat-stat-label">Alcance orgânico</span>
+              <div class="plat-stat-right">
+                <div class="plat-stat-val">96,6%</div>
+                <div class="plat-stat-growth">novos públicos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIKTOK -->
+        <div class="platform-col">
+          <div class="platform-name">
+            <div class="platform-icon tt">
+              <svg viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.22 8.22 0 004.82 1.55V6.79a4.85 4.85 0 01-1.05-.1z" />
+              </svg>
+            </div>
+            <span class="platform-label">TikTok</span>
+          </div>
+          <div class="plat-stats">
+            <div class="plat-stat-row">
+              <span class="plat-stat-label">Visualizações</span>
+              <div class="plat-stat-right">
+                <div class="plat-stat-val">228K</div>
+                <div class="plat-stat-growth">+192K (+533%)</div>
+              </div>
+            </div>
+            <div class="plat-stat-row">
+              <span class="plat-stat-label">Contas alcançadas</span>
+              <div class="plat-stat-right">
+                <div class="plat-stat-val">190K</div>
+                <div class="plat-stat-growth">+37.473%</div>
+              </div>
+            </div>
+            <div class="plat-stat-row">
+              <span class="plat-stat-label">Interações</span>
+              <div class="plat-stat-right">
+                <div class="plat-stat-val">12K</div>
+                <div class="plat-stat-growth">+11K (+943,5%)</div>
+              </div>
+            </div>
+            <div class="plat-stat-row">
+              <span class="plat-stat-label">Alcance orgânico</span>
+              <div class="plat-stat-right">
+                <div class="plat-stat-val">96,6%</div>
+                <div class="plat-stat-growth">novos públicos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- REEL VIRAL -->
+    <div class="section no-top"><br>
+
+      <div class="section-head">Reel viral · Instagram</div>
+      <div class="reel-row">
+        <div class="reel-item">
+          <div class="reel-n">1.1M</div>
+          <div class="reel-l">Visualizações</div>
+        </div>
+        <div class="reel-item">
+          <div class="reel-n">40K</div>
+          <div class="reel-l">Curtidas</div>
+        </div>
+        <div class="reel-item">
+          <div class="reel-n">1K</div>
+          <div class="reel-l">Comentários</div>
+        </div>
+        <div class="reel-item">
+          <div class="reel-n">3,7K</div>
+          <div class="reel-l">Compartilhamentos</div>
+        </div>
+        <div class="reel-item">
+          <div class="reel-n">2,2K</div>
+          <div class="reel-l">Salvos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PÚBLICO -->
+    <div class="section">
+      <div class="section-head">Público</div>
+      <div class="audience">
+        <div>
+          <div class="aud-label">Gênero</div>
+          <div class="gender-row">
+            <span class="g-name">Mulheres</span>
+            <div class="bar-wrap">
+              <div class="bar-fill f"></div>
+            </div>
+            <span class="g-pct">80%</span>
+          </div>
+          <div class="gender-row">
+            <span class="g-name">Homens</span>
+            <div class="bar-wrap">
+              <div class="bar-fill m"></div>
+            </div>
+            <span class="g-pct">20%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NICHOS -->
+    <div class="section">
+      <div class="section-head">Nichos</div>
+      <div class="tags">
+        <span class="tag on">Automotivo</span>
+        <span class="tag on">Lifestyle</span>
+        <span class="tag on">Tech & UGC</span>
+        <span class="tag">Moda & Beleza</span>
+        <span class="tag">Humor</span>
+        <span class="tag">Público feminino</span>
+        <span class="tag">Brasília / DF</span>
+        <span class="tag">Reels virais</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta-h">Vamos trabalhar juntos?</div>
+      <div class="cta-line">
+        <span><svg class="cta-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.065 1.276.261 2.146.558 2.912.306.789.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.912.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.065 2.147-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.912.065-1.28.072-1.689.072-4.948 0-3.26-.014-3.667-.072-4.947-.065-1.277-.261-2.147-.558-2.913-.306-.788-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+          </svg> @aylafernandes</span>
+        <span><svg class="cta-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-2.57 1.6-4.97 3.8-6.31 1.37-.89 3.06-1.34 4.74-1.22.01 1.48-.04 2.96-.04 4.44-.99-.32-2.1-.23-3 .27-1.12.61-1.93 1.81-1.99 3.1-.07 1.56.77 3.16 2.14 3.94.99.57 2.26.67 3.35.23.82-.33 1.54-.93 1.99-1.7.33-.55.51-1.18.52-1.81.04-3.4.03-6.79.05-10.19 1.36 0 2.72 0 4.1-.01z" />
+          </svg> @fernandesayla</span>
+        <div class="dot"></div>
+        <span><svg class="cta-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg> (11) 96300-5239</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
