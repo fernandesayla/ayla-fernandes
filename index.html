@@ -24,7 +24,6 @@
     .page {
       max-width: 1280px;
       margin: 0 auto;
-
       background: #f8f4ee;
     }
 
@@ -79,7 +78,6 @@
     /* ─── BIO ─── */
     .bio {
       padding: 24px 24px;
-
     }
 
     .bio p {
@@ -515,6 +513,7 @@
       border-top: 1px solid #c5b49d;
     }
 
+    /* ─── PRINT ─── */
     @page {
       margin: 0;
       size: auto;
@@ -532,6 +531,138 @@
       .page {
         max-width: none;
         width: 100%;
+      }
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 640px) {
+      .cover {
+        flex-direction: column-reverse;
+        gap: 28px;
+        padding: 36px 24px 32px;
+      }
+
+      .cover-right {
+        width: 100%;
+        justify-content: center;
+        padding-top: 0;
+      }
+
+      .cover-photo {
+        width: 52%;
+        border-radius: 100px;
+      }
+
+      .cover-name {
+        font-size: 38px;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+      }
+
+      .cover-subtitle {
+        font-size: 11px;
+        margin-bottom: 20px;
+      }
+
+      .cover-left .bio p {
+        font-size: 13px;
+        text-align: left;
+      }
+
+      .section {
+        padding: 28px 24px;
+      }
+
+      .section.no-top {
+        padding-top: 0;
+      }
+
+      .section-head {
+        margin-bottom: 20px;
+      }
+
+      .viral {
+        padding: 16px 24px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      /* plataformas: 1 coluna */
+      .platforms {
+        grid-template-columns: 1fr;
+      }
+
+      .platform-col + .platform-col {
+        border-left: none;
+        border-top: 1px solid #c5b49d;
+      }
+
+      .platform-col {
+        padding: 24px 20px;
+      }
+
+      .plat-stat-val {
+        font-size: 30px;
+      }
+
+      /* reel: 3 + 2 */
+      .reel-row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .reel-item {
+        flex: 1 1 33.333%;
+        border-right: 1px solid #c5b49d;
+        border-bottom: 1px solid #c5b49d;
+      }
+
+      /* 4º e 5º itens ficam na segunda linha, centralizados */
+      .reel-item:nth-child(3) {
+        border-right: none;
+      }
+
+      .reel-item:nth-child(4),
+      .reel-item:nth-child(5) {
+        flex: 1 1 50%;
+        border-bottom: none;
+      }
+
+      .reel-item:nth-child(5) {
+        border-right: none;
+      }
+
+      .reel-item:last-child {
+        border-right: none;
+      }
+
+      .reel-n {
+        font-size: 26px;
+      }
+
+      /* público: 1 coluna */
+      .audience {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      /* cta */
+      .cta {
+        padding: 36px 24px;
+      }
+
+      .cta-h {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .cta-line {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .dot {
+        display: none;
       }
     }
   </style>
